@@ -57,22 +57,37 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('sending');
 
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    formData.name,
+          email:   formData.email,
+          phone:   formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
       });
-    }, 1200);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Server error');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (err) {
+      console.error('Send error:', err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -111,6 +126,22 @@ export default function Contact() {
                     </span>
                   </div>
                 </div>
+
+                {/* Phone */}
+                <a
+                  href={`tel:${personalInfo.contact.rawPhone}`}
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-[#181c28] border border-slate-800/80 hover:border-blue-500/50 hover:bg-[#1a2030] transition-colors group"
+                >
+                  <div className="p-3 rounded-xl bg-blue-600/20 text-blue-400 shrink-0 group-hover:scale-105 transition-transform">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-400 font-medium block">Phone Number</span>
+                    <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
+                      {personalInfo.contact.phone}
+                    </span>
+                  </div>
+                </a>
 
                 {/* Email */}
                 <a
@@ -189,6 +220,24 @@ export default function Contact() {
                   className="mt-3 inline-block text-xs font-bold text-blue-400 underline hover:no-underline"
                 >
                   Send another message
+                </button>
+              </div>
+            ) : status === 'error' ? (
+              <div className="p-8 rounded-2xl bg-red-500/10 border border-red-500/30 text-center space-y-3">
+                <AlertCircle className="w-12 h-12 text-red-400 mx-auto" />
+                <h4 className="text-xl font-bold text-white">Failed to Send Message</h4>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
+                  Something went wrong. Please try again or email directly at{' '}
+                  <a href={`mailto:${personalInfo.contact.email}`} className="text-blue-400 underline">
+                    {personalInfo.contact.email}
+                  </a>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStatus('idle')}
+                  className="mt-3 inline-block text-xs font-bold text-red-400 underline hover:no-underline"
+                >
+                  Try again
                 </button>
               </div>
             ) : (

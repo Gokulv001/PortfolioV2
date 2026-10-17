@@ -2,23 +2,21 @@ export const experiences = [
   {
     id: "softye-tech",
     company: "Softye Technologies",
-    role: "MERN Stack Developer",
+    role: "Software Engineer Trainee",
     location: "Erode, Tamil Nadu",
-    period: "Jan 2025 – Present",
+    period: "Jan 2025 – Oct 2026",
     type: "Full-Time",
-    current: true,
-    summary: "Engineered scalable web applications and cross-platform mobile apps for enterprise client solutions and SaaS products.",
+    current: false,
+    summary: "Developed and maintained full-stack web and mobile applications across diverse business domains using the MERN stack and React Native.",
     responsibilities: [
-      "Full-stack web application development utilizing React.js, Node.js, Express.js, and MongoDB.",
-      "Developed high-performance React frontends with responsive designs, modular components, and fluid user interactions.",
-      "Engineered backend RESTful APIs with Node.js and Express.js, handling business logic, validation, and secure authentication.",
-      "Designed and optimized MongoDB database schemas, aggregations, and data pipelines using Mongoose ODM.",
-      "Built cross-platform mobile application modules using React Native and Expo for Android devices.",
-      "Seamlessly integrated REST APIs between frontend interfaces, mobile apps, and backend services.",
-      "Created responsive admin dashboards and client portals with real-time reporting and analytics views.",
-      "Conducted rigorous API testing, endpoint validation, and mock scenarios using Postman.",
-      "Implemented critical feature requirements, resolved bugs, optimized page load times, and performed code reviews.",
-      "Collaborated actively in an Agile/Scrum team environment with Azure DevOps boards and Git version control."
+      "Developed and maintained full-stack web applications using React.js, Node.js, Express.js, and MongoDB.",
+      "Designed and integrated RESTful APIs for authentication, CRUD operations, business workflows, and third-party services.",
+      "Built responsive Admin Panels and user-facing interfaces using React.js, Tailwind CSS, and Material UI.",
+      "Worked on PG Management, Billing/POS, Payroll, Restaurant Management, Matrimony, Finance, School Management, and booking applications.",
+      "Implemented authentication, role-based access control, database models, file uploads, and AWS S3 integrations.",
+      "Developed React Native mobile application features using Expo, including API integration and push notification setup.",
+      "Performed API testing with Postman, application testing, bug fixing, debugging, and integration validation.",
+      "Collaborated with team members to implement modules, resolve reported issues, and improve application usability."
     ],
     technologies: [
       "React.js",
@@ -26,13 +24,16 @@ export const experiences = [
       "Node.js",
       "Express.js",
       "MongoDB",
-      "TypeScript",
       "Tailwind CSS",
+      "Material UI",
       "Expo",
       "REST APIs",
+      "JWT Authentication",
+      "AWS S3",
+      "Firebase",
       "Postman",
       "Git",
-      "Azure DevOps"
+      "GitHub"
     ]
   }
 ];

@@ -117,7 +117,7 @@ export default function Hero() {
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:gokulrajv.dev@gmail.com"
+                href={`mailto:${personalInfo.contact.email}`}
                 className="w-10 h-10 rounded-full bg-[#181c26] border border-slate-700/80 hover:border-blue-500 hover:bg-blue-600/20 text-slate-300 hover:text-blue-400 flex items-center justify-center transition-colors duration-200 shadow-sm"
                 aria-label="Email Gokulraj"
                 title="Email"
@@ -166,7 +166,7 @@ export default function Hero() {
 
               <div className="px-3 sm:px-4 text-left">
                 <div className="text-xl sm:text-2xl font-black text-blue-500 font-mono">
-                  8+
+                  11+
                 </div>
                 <div className="text-[11px] sm:text-xs font-medium text-slate-400 mt-0.5">
                   Project done

@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Environment variables — NEVER commit these (contains SMTP password)
+.env
+.env.local
+.env.production
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

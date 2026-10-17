@@ -18,16 +18,18 @@ import Button from '../../components/common/Button';
 
 export default function About() {
   const highlights = [
-    "Web Application Development",
-    "Mobile Application Development",
-    "REST API Integration",
-    "Admin Dashboards",
-    "Business Applications",
-    "SaaS Applications",
-    "Invoice Applications",
-    "PG Management Applications",
-    "Finance Applications",
-    "School Management Applications"
+    "PG Management Systems",
+    "Billing & POS / Inventory",
+    "Payroll & Statutory Workflows",
+    "Race & Slot Booking Engines",
+    "Restaurant Management & POS",
+    "Matrimony & Community Apps",
+    "Quality Checking (QChecker)",
+    "School Management Systems",
+    "Global Finance & Ledgers",
+    "Role-Based Access Control (RBAC)",
+    "AWS S3 Cloud Storage & Uploads",
+    "RESTful APIs & Postman Testing"
   ];
 
   return (
@@ -36,7 +38,7 @@ export default function About() {
         <SectionTitle
           eyebrow="BACKGROUND & SPECIALIZATION"
           title="About Me"
-          subtitle="Building resilient software solutions across modern web and mobile platforms."
+          subtitle="Passionate Full Stack Developer building responsive and scalable web and mobile applications."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -53,22 +55,22 @@ export default function About() {
               <div>
                 <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Gokulraj V</h3>
                 <p className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">
-                  Full Stack MERN Developer • Softye Technologies
+                  Full Stack Developer • Softye Technologies
                 </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Erode, Tamil Nadu, India</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Erode, Tamil Nadu, India • Jan 2025 – Oct 2026</p>
               </div>
             </div>
 
             <p className="font-medium text-slate-900 dark:text-white">
-              Gokulraj V is a Full Stack MERN Developer with professional experience developing scalable web applications at <span className="text-blue-600 dark:text-blue-400 font-bold">Softye Technologies</span>.
+              Gokulraj V is a Full Stack Developer with hands-on experience building responsive and scalable web and mobile applications using the <span className="text-blue-600 dark:text-blue-400 font-bold">MERN stack and React Native</span>.
             </p>
 
             <p>
-              He works across the full product lifecycle: frontend architecture, backend API integration, responsive UI development, database modeling with MongoDB, debugging, testing, and feature implementation across web and mobile platforms.
+              He possesses strong core capabilities across React.js, Node.js, Express.js, MongoDB, REST API development, JWT authentication, database design, CRUD operations, role-based access control (RBAC), third-party integrations, and AWS S3 cloud storage.
             </p>
 
             <p>
-              Specializing in both high-productivity web dashboards and smooth cross-platform mobile apps with React Native, his focus is always on writing clean, scalable code that solves genuine business challenges.
+              Having engineered real-world Admin Panels, PG Management Systems, Billing/POS, Payroll SaaS, Restaurant Management, Matrimony, Finance, School Management, and Race Booking platforms, his focus is writing clean, scalable code that delivers measurable business impact.
             </p>
 
             {/* Quick Metadata Badges */}
@@ -89,17 +91,17 @@ export default function About() {
                   <span>Experience</span>
                 </div>
                 <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  1+ Year at Softye
+                  Jan 2025 – Oct 2026
                 </div>
               </div>
 
               <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 col-span-2 sm:col-span-1">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
                   <Building2 className="w-3.5 h-3.5 text-primary-500" />
-                  <span>Dual Focus</span>
+                  <span>Platforms</span>
                 </div>
                 <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  Web + Mobile
+                  Web & Mobile (Expo)
                 </div>
               </div>
             </div>
