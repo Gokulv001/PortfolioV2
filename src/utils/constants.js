@@ -8,5 +8,5 @@ export const SITE_CONFIG = {
   email: "gokulrajv.dev@gmail.com",
   github: "https://github.com/Gokulv001",
   linkedin: "https://www.linkedin.com/in/gokul-v-952552408/",
-  resumePath: "/resume/Gokulraj-V-Resume.pdf"
+  resumePath: `${import.meta.env.BASE_URL}resume/Gokulraj-V-Resume.pdf`
 };

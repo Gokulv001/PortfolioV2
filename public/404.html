@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gokulraj V Portfolio</title>
+    <script>
+      // SPA redirect for GitHub Pages
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      var segments = l.pathname.split('/').filter(Boolean);
+      // If deployed at root (domain.com) segments are routes, if on gokulv001.github.io/PortfolioV2 then 1st segment is repo
+      var isSubfolder = segments.length > 0 && segments[0].toLowerCase() === 'portfoliov2';
+      var basePath = isSubfolder ? '/' + segments[0] : '';
+      var route = l.pathname.slice(basePath.length);
+
+      // Store destination and redirect to base
+      sessionStorage.setItem('spa_redirect', route + l.search + l.hash);
+      window.location.replace(basePath + '/');
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

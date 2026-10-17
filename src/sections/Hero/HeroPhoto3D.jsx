@@ -87,7 +87,7 @@ export default function HeroPhoto3D() {
 
           {/* Portrait Photo of Gokulraj V (Zoomed Out & Centered) */}
           <img
-            src="/images/profile/gokulraj.jpg"
+            src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
             alt="Gokulraj V - Full Stack Developer"
             className="relative z-10 w-full h-full object-cover object-center pointer-events-none transition-transform duration-500 group-hover:scale-105"
             loading="eager"

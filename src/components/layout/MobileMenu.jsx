@@ -38,7 +38,7 @@ export default function MobileMenu({ isOpen, onClose, activeSection, onNavigate,
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-blue-500/60 shrink-0">
               <img
-                src="/images/profile/gokulraj.jpg"
+                src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
                 alt="Gokulraj V"
                 className="w-full h-full object-cover object-center"
               />

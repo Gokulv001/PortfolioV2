@@ -38,7 +38,7 @@ export const personalInfo = {
       label: "Send an Email"
     }
   ],
-  resumeUrl: "/resume/Gokulraj-V-Resume.pdf",
+  resumeUrl: `${import.meta.env.BASE_URL}resume/Gokulraj-V-Resume.pdf`,
   stats: [
     { label: "Experience", value: "1+ Year" },
     { label: "Core Platforms", value: "Web + Mobile" },

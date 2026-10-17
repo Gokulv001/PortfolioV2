@@ -45,7 +45,7 @@ export default function About() {
             <div className="flex items-center gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-blue-500/40 shadow-lg shadow-blue-500/10 shrink-0 bg-slate-900">
                 <img
-                  src="/images/profile/gokulraj.jpg"
+                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
                   alt="Gokulraj V"
                   className="w-full h-full object-cover object-[50%_15%]"
                 />
