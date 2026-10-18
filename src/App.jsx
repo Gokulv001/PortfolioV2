@@ -4,6 +4,8 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import AppRoutes from './routes/AppRoutes';
 import { useTheme } from './hooks/useTheme';
+import ThreeInteractiveBackground from './components/3d/ThreeInteractiveBackground';
+import InteractiveCursorGlow from './components/3d/InteractiveCursorGlow';
 
 // Scrolls to the top on every route change and on initial load
 function ScrollToTop() {
@@ -40,7 +42,14 @@ export default function App() {
     <BrowserRouter basename={basename}>
       <ScrollToTop />
       <RedirectHandler />
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 dark:bg-navy-950 dark:text-slate-100 font-sans transition-colors duration-300">
+
+      {/* Dynamic 3D WebGL Background Scene */}
+      <ThreeInteractiveBackground key={theme} />
+
+      {/* Interactive Cursor Spotlight Glow */}
+      <InteractiveCursorGlow />
+
+      <div className="relative z-10 min-h-screen flex flex-col bg-slate-50/90 text-slate-800 dark:bg-navy-950/90 dark:text-slate-100 font-sans transition-colors duration-300">
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <div className="flex-1">
           <AppRoutes />

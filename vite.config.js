@@ -15,6 +15,16 @@ export default defineConfig({
         changeOrigin: true,
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          framer: ['framer-motion'],
+          vendor: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
+        }
+      }
+    }
   }
 });
-

@@ -15,6 +15,8 @@ import { scrollToSection } from '../../utils/helpers';
 import Container from '../../components/common/Container';
 import SectionTitle from '../../components/common/SectionTitle';
 import Button from '../../components/common/Button';
+import Card3DTilt from '../../components/3d/Card3DTilt';
+import Floating3DOrbs from '../../components/3d/Floating3DOrbs';
 
 export default function About() {
   const highlights = [
@@ -33,8 +35,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 sm:py-28 bg-slate-50/50 dark:bg-navy-900/40 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors">
-      <Container>
+    <section id="about" className="relative py-20 sm:py-28 bg-slate-50/50 dark:bg-navy-900/40 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors overflow-hidden">
+      {/* Decorative ambient 3D geometric accent */}
+      <Floating3DOrbs position="right" />
+
+      <Container className="relative z-10">
         <SectionTitle
           eyebrow="BACKGROUND & SPECIALIZATION"
           title="About Me"
@@ -45,11 +50,14 @@ export default function About() {
           {/* Left Column: Personal Narrative */}
           <div className="lg:col-span-7 space-y-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             <div className="flex items-center gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-blue-500/40 shadow-lg shadow-blue-500/10 shrink-0 bg-slate-900">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-blue-500/40 shadow-lg shadow-blue-500/20 shrink-0 bg-gradient-to-b from-blue-950 to-slate-950 p-1 flex items-center justify-center">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj-cutout.png`}
                   alt="Gokulraj V"
-                  className="w-full h-full object-cover object-[50%_15%]"
+                  className="w-full h-full object-cover object-[center_top]"
+                  onError={(e) => {
+                    e.currentTarget.src = `${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`;
+                  }}
                 />
               </div>
               <div>
@@ -73,37 +81,43 @@ export default function About() {
               Having engineered real-world Admin Panels, PG Management Systems, Billing/POS, Payroll SaaS, Restaurant Management, Matrimony, Finance, School Management, and Race Booking platforms, his focus is writing clean, scalable code that delivers measurable business impact.
             </p>
 
-            {/* Quick Metadata Badges */}
+            {/* Quick Metadata Badges with 3D Tilt */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3">
-              <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-primary-500" />
-                  <span>Location</span>
+              <Card3DTilt maxTilt={8} scale={1.03} glareOpacity={0.12}>
+                <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm h-full">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-primary-500" />
+                    <span>Location</span>
+                  </div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    {personalInfo.location}
+                  </div>
                 </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  {personalInfo.location}
-                </div>
-              </div>
+              </Card3DTilt>
 
-              <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
-                  <Briefcase className="w-3.5 h-3.5 text-primary-500" />
-                  <span>Experience</span>
+              <Card3DTilt maxTilt={8} scale={1.03} glareOpacity={0.12}>
+                <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm h-full">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
+                    <Briefcase className="w-3.5 h-3.5 text-primary-500" />
+                    <span>Experience</span>
+                  </div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    Jan 2025 – Oct 2026
+                  </div>
                 </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  Jan 2025 – Oct 2026
-                </div>
-              </div>
+              </Card3DTilt>
 
-              <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 col-span-2 sm:col-span-1">
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
-                  <Building2 className="w-3.5 h-3.5 text-primary-500" />
-                  <span>Platforms</span>
+              <Card3DTilt maxTilt={8} scale={1.03} glareOpacity={0.12} className="col-span-2 sm:col-span-1">
+                <div className="bg-white dark:bg-navy-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm h-full">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-0.5">
+                    <Building2 className="w-3.5 h-3.5 text-primary-500" />
+                    <span>Platforms</span>
+                  </div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    Web & Mobile (Expo)
+                  </div>
                 </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  Web & Mobile (Expo)
-                </div>
-              </div>
+              </Card3DTilt>
             </div>
 
             <div className="pt-2">
@@ -119,37 +133,44 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Focus Areas & Systems Built */}
-          <div className="lg:col-span-5 bg-white dark:bg-navy-900 rounded-2xl border border-slate-200/90 dark:border-slate-800/90 p-6 sm:p-8 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              Domain & Application Expertise
-            </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
-              Practical industry experience delivering tailored business systems:
-            </p>
+          {/* Right Column: Focus Areas & Systems Built in 3D Card */}
+          <div className="lg:col-span-5">
+            <Card3DTilt maxTilt={8} scale={1.01} glareOpacity={0.15}>
+              <div className="bg-white dark:bg-navy-900 rounded-2xl border border-slate-200/90 dark:border-slate-800/90 p-6 sm:p-8 shadow-xl">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2" style={{ transform: 'translateZ(18px)' }}>
+                  Domain & Application Expertise
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-6" style={{ transform: 'translateZ(14px)' }}>
+                  Practical industry experience delivering tailored business systems:
+                </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {highlights.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-primary-500 shrink-0" />
-                  <span>{item}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" style={{ transform: 'translateZ(12px)' }}>
+                  {highlights.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 dark:bg-navy-950/60 border border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:border-primary-500/40 hover:bg-primary-50/40 dark:hover:bg-primary-950/20 transition-all duration-200 cursor-default"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-primary-500 shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Quick Stat Banner */}
-            <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-              <div>
-                <span className="text-xs text-slate-500 block">Core Philosophy</span>
-                <span className="text-sm font-bold text-slate-900 dark:text-white">
-                  Clean Code & Scalable Architecture
-                </span>
+                {/* Quick Stat Banner */}
+                <div
+                  className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between"
+                  style={{ transform: 'translateZ(10px)' }}
+                >
+                  <div>
+                    <span className="text-xs text-slate-500 block">Core Philosophy</span>
+                    <span className="text-sm font-bold text-slate-900 dark:text-white">
+                      Clean Code & Scalable Architecture
+                    </span>
+                  </div>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50"></span>
+                </div>
               </div>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            </div>
+            </Card3DTilt>
           </div>
         </div>
       </Container>
