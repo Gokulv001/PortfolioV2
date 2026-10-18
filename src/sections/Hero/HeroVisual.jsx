@@ -31,7 +31,7 @@ export default function HeroVisual() {
         {/* Code Content */}
         <div className="p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-slate-800 dark:text-slate-200">
           <div className="text-slate-400 dark:text-slate-500 italic mb-2">
-            // Full Stack MERN & Mobile App Engineer
+            // Full Stack Developer & Mobile App Engineer
           </div>
           <div>
             <span className="text-purple-600 dark:text-purple-400 font-semibold">const</span>{' '}

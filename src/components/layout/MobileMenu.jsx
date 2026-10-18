@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { X, FileText, Sun, Moon, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { X, FileText, Sun, Moon, Github, Linkedin, ExternalLink, Code2 } from 'lucide-react';
 import { navLinks } from '../../data/navigation';
 import { personalInfo } from '../../data/personal';
 import Button from '../common/Button';
@@ -35,20 +35,22 @@ export default function MobileMenu({ isOpen, onClose, activeSection, onNavigate,
       <div className="relative ml-auto w-full max-w-xs sm:max-w-sm bg-white dark:bg-navy-900 border-l border-slate-200 dark:border-slate-800 h-full flex flex-col p-6 shadow-2xl z-10 overflow-y-auto">
         {/* Drawer Header */}
         <div className="flex items-center justify-between pb-5 border-b border-slate-200 dark:border-slate-800">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-blue-500/60 shrink-0">
-              <img
-                src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
-                alt="Gokulraj V"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-            <div>
-              <span className="text-base font-black tracking-tight text-slate-900 dark:text-white block">
-                GOKULRAJ V
+          <div className="flex items-center gap-2.5">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-blue-500/25 shrink-0">
+              <Code2 className="w-5 h-5 text-white" />
+              <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 ring-2 ring-white dark:ring-[#0c0e14]"></span>
               </span>
-              <span className="block text-[11px] font-medium text-blue-500">
-                Full Stack MERN Developer
+            </div>
+            <div className="flex flex-col">
+              <span className="font-mono text-base font-black tracking-tight text-slate-900 dark:text-white flex items-center">
+                <span className="text-blue-500 font-bold">&lt;</span>
+                <span>Gokulraj</span>
+                <span className="text-blue-500 font-bold ml-0.5">/&gt;</span>
+              </span>
+              <span className="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase -mt-0.5">
+                Full Stack Dev
               </span>
             </div>
           </div>
