@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Smartphone, Code2, Sparkles, Cpu } from 'lucide-react';
 
+
 export default function HeroPhoto3D() {
   const containerRef = useRef(null);
 
