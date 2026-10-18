@@ -42,7 +42,7 @@ export default function HeroPhoto3D() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[500px] mx-auto aspect-square flex items-center justify-center select-none"
+      className="relative w-full max-w-[300px] sm:max-w-[420px] lg:max-w-[500px] mx-auto aspect-square flex items-center justify-center select-none"
       style={{ perspective: 1200 }}
     >
       {/* Main 3D Card with Organic Floating & Spring Tilt */}
@@ -114,14 +114,14 @@ export default function HeroPhoto3D() {
             y: badge1Y,
             transform: 'translateZ(70px)',
           }}
-          className="absolute top-4 sm:top-8 -right-2 sm:right-2 z-30 bg-[#141824]/95 backdrop-blur-md border border-blue-500/50 rounded-2xl px-3.5 py-2.5 shadow-2xl shadow-black/60 flex items-center gap-2.5 animate-float-left pointer-events-none"
+          className="hidden sm:flex absolute top-2 sm:top-6 right-0 sm:right-2 z-30 bg-[#141824]/95 backdrop-blur-md border border-blue-500/50 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 shadow-2xl shadow-black/60 items-center gap-2 sm:gap-2.5 animate-float-left pointer-events-none"
         >
-          <div className="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold shadow-inner">
-            <Smartphone className="w-4 h-4" />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold shadow-inner shrink-0">
+            <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
           <div>
-            <div className="text-[11px] font-bold text-white leading-tight">Web & Mobile</div>
-            <div className="text-[9px] text-blue-400 font-mono">React + React Native</div>
+            <div className="text-[10px] sm:text-[11px] font-bold text-white leading-tight">Web & Mobile</div>
+            <div className="text-[8px] sm:text-[9px] text-blue-400 font-mono">React + React Native</div>
           </div>
         </motion.div>
 
@@ -132,28 +132,28 @@ export default function HeroPhoto3D() {
             y: badge2Y,
             transform: 'translateZ(80px)',
           }}
-          className="absolute bottom-8 sm:bottom-12 -left-2 sm:left-2 z-30 bg-[#141824]/95 backdrop-blur-md border border-blue-500/50 rounded-2xl px-3.5 py-2.5 shadow-2xl shadow-black/60 flex items-center gap-2.5 animate-float-right pointer-events-none"
+          className="hidden sm:flex absolute bottom-6 sm:bottom-10 left-0 sm:left-2 z-30 bg-[#141824]/95 backdrop-blur-md border border-blue-500/50 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 shadow-2xl shadow-black/60 items-center gap-2 sm:gap-2.5 animate-float-right pointer-events-none"
         >
-          <div className="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold shadow-inner">
-            <Code2 className="w-4 h-4" />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold shadow-inner shrink-0">
+            <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
           <div>
-            <div className="text-[11px] font-bold text-white leading-tight">MERN + TypeScript</div>
-            <div className="text-[9px] text-emerald-400 font-mono font-medium">Production Ready</div>
+            <div className="text-[10px] sm:text-[11px] font-bold text-white leading-tight">MERN + TypeScript</div>
+            <div className="text-[8px] sm:text-[9px] text-emerald-400 font-mono font-medium">Production Ready</div>
           </div>
         </motion.div>
 
         {/* Layer 7: Floating 3D Badge 3 (Softye Technologies - Bottom Center) */}
         <motion.div
           style={{ transform: 'translateZ(55px)' }}
-          className="absolute -bottom-3 sm:bottom-0 z-30 bg-blue-600/90 text-white backdrop-blur-md border border-blue-400/50 rounded-full px-4 py-1.5 shadow-xl shadow-blue-600/40 flex items-center gap-2"
+          className="hidden sm:flex absolute bottom-0 sm:bottom-1 z-30 bg-blue-600/90 text-white backdrop-blur-md border border-blue-400/50 rounded-full px-3 sm:px-4 py-1.5 shadow-xl shadow-blue-600/40 items-center gap-2"
           whileHover={{ scale: 1.05 }}
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
-          <span className="text-xs font-bold tracking-wide">Softye Technologies</span>
+          <span className="text-[10px] sm:text-xs font-bold tracking-wide">Softye Technologies</span>
         </motion.div>
       </motion.div>
     </div>

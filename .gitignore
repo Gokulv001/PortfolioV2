@@ -12,7 +12,10 @@ dist
 dist-ssr
 *.local
 
-
+# ⚠️ NEVER REMOVE THESE — contains your Gmail SMTP password
+.env
+.env.local
+.env.production
 
 
 # Editor directories and files
