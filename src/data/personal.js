@@ -66,7 +66,7 @@ export const personalInfo = {
   ],
   certifications: [
     {
-      title: "MERN Stack Development",
+      title: "Full Stack Development",
       issuer: "Softye Technologies",
       period: "Jan 2025 – Dec 2025",
       description: "Comprehensive hands-on training in React.js, Node.js, Express.js, MongoDB, and RESTful API engineering."

@@ -40,12 +40,28 @@ export default function HeroPhoto3D() {
     mouseY.set(0);
   };
 
+  const handleTouchMove = (e) => {
+    if (!containerRef.current || !e.touches[0]) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = (e.touches[0].clientX - rect.left) / rect.width - 0.5;
+    const y = (e.touches[0].clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(Math.max(-0.5, Math.min(0.5, x)));
+    mouseY.set(Math.max(-0.5, Math.min(0.5, y)));
+  };
+
+  const handleTouchEnd = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[460px] mx-auto select-none py-2"
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className="relative w-full max-w-[290px] xs:max-w-[330px] sm:max-w-[420px] lg:max-w-[460px] mx-auto select-none py-2"
       style={{ perspective: 1200 }}
     >
       {/* 3D Frameless Tilt Wrapper */}
@@ -57,31 +73,31 @@ export default function HeroPhoto3D() {
         }}
         whileHover={{ scale: 1.02 }}
         transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-        className="relative w-full h-[520px] sm:h-[600px] lg:h-[640px] flex items-center justify-center cursor-pointer"
+        className="relative w-full h-[410px] xs:h-[450px] sm:h-[540px] lg:h-[620px] max-h-[75vh] flex items-center justify-center cursor-pointer"
       >
         {/* Layer 1: Volumetric Neon Light Glow Behind Upper Body */}
         <div
-          className="absolute top-16 left-1/2 -translate-x-1/2 w-72 sm:w-88 h-72 sm:h-88 rounded-full bg-gradient-to-tr from-blue-600/40 via-cyan-400/35 to-indigo-600/30 blur-3xl pointer-events-none animate-halo-pulse"
+          className="absolute top-12 sm:top-16 left-1/2 -translate-x-1/2 w-64 sm:w-88 h-64 sm:h-88 rounded-full bg-gradient-to-tr from-blue-600/40 via-cyan-400/35 to-indigo-600/30 blur-3xl pointer-events-none animate-halo-pulse"
           style={{ transform: 'translateZ(-50px)' }}
         />
 
         {/* Layer 2: Subtle Orbiting Rings in Background */}
         <div
-          className="absolute top-12 left-1/2 -translate-x-1/2 w-80 sm:w-96 h-80 sm:h-96 rounded-full border border-blue-500/20 animate-spin-slow pointer-events-none"
+          className="absolute top-8 sm:top-12 left-1/2 -translate-x-1/2 w-64 sm:w-96 h-64 sm:h-96 rounded-full border border-blue-500/20 animate-spin-slow pointer-events-none"
           style={{ transform: 'translateZ(-40px)' }}
         >
-          <span className="absolute top-3 left-1/4 w-3 h-3 rounded-full bg-cyan-400/80 shadow-lg shadow-cyan-400/80"></span>
-          <span className="absolute bottom-8 right-1/4 w-2 h-2 rounded-full bg-blue-500 shadow-md"></span>
+          <span className="absolute top-3 left-1/4 w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-cyan-400/80 shadow-lg shadow-cyan-400/80"></span>
+          <span className="absolute bottom-8 right-1/4 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-500 shadow-md"></span>
         </div>
 
         <div
-          className="absolute top-20 left-1/2 -translate-x-1/2 w-64 sm:w-80 h-64 sm:h-80 rounded-full border-2 border-dashed border-cyan-400/20 animate-spin-slow-reverse pointer-events-none"
+          className="absolute top-14 sm:top-20 left-1/2 -translate-x-1/2 w-52 sm:w-80 h-52 sm:h-80 rounded-full border-2 border-dashed border-cyan-400/20 animate-spin-slow-reverse pointer-events-none"
           style={{ transform: 'translateZ(-25px)' }}
         />
 
         {/* Layer 3: Ambient Tech Matrix Pattern */}
         <div
-          className="absolute top-16 inset-x-0 h-80 flex items-center justify-center pointer-events-none opacity-30"
+          className="absolute top-12 sm:top-16 inset-x-0 h-64 sm:h-80 flex items-center justify-center pointer-events-none opacity-30"
           style={{ transform: 'translateZ(-20px)' }}
         >
           <div className="w-[85%] h-full bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:20px_20px] rounded-full [mask-image:radial-gradient(circle,black_50%,transparent_80%)]" />
@@ -89,11 +105,11 @@ export default function HeroPhoto3D() {
 
         {/* Layer 4: Ground Contact Shadow under Shoes */}
         <div
-          className="absolute bottom-2 left-1/2 -translate-x-1/2 w-56 h-6 rounded-full bg-black/80 blur-md pointer-events-none"
+          className="absolute bottom-2 left-1/2 -translate-x-1/2 w-44 sm:w-56 h-5 sm:h-6 rounded-full bg-black/80 blur-md pointer-events-none"
           style={{ transform: 'translateZ(10px)' }}
         />
         <div
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 w-36 h-3 rounded-full bg-blue-600/30 blur-sm pointer-events-none"
+          className="absolute bottom-3 left-1/2 -translate-x-1/2 w-28 sm:w-36 h-2.5 sm:h-3 rounded-full bg-blue-600/30 blur-sm pointer-events-none"
           style={{ transform: 'translateZ(12px)' }}
         />
 
@@ -118,17 +134,17 @@ export default function HeroPhoto3D() {
             transform: 'translateZ(75px)',
           }}
           whileHover={{ scale: 1.08 }}
-          className="hidden sm:flex absolute top-12 -right-4 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-blue-500/50 rounded-2xl px-3.5 py-2.5 shadow-2xl shadow-black/80 items-center gap-2.5 cursor-default group"
+          className="flex absolute top-6 -right-2 sm:top-12 sm:-right-4 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-blue-500/50 rounded-xl sm:rounded-2xl px-2 py-1.5 sm:px-3.5 sm:py-2.5 shadow-2xl shadow-black/80 items-center gap-1.5 sm:gap-2.5 cursor-default group"
         >
-          <div className="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold shadow-inner shrink-0 group-hover:rotate-12 transition-transform">
-            <Smartphone className="w-4 h-4 text-blue-400" />
+          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold shadow-inner shrink-0 group-hover:rotate-12 transition-transform">
+            <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
           </div>
           <div>
-            <div className="text-[11px] font-bold text-white leading-tight flex items-center gap-1">
+            <div className="text-[10px] sm:text-[11px] font-bold text-white leading-tight flex items-center gap-1">
               <span>Web & Mobile</span>
-              <Sparkles className="w-2.5 h-2.5 text-amber-400" />
+              <Sparkles className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-amber-400" />
             </div>
-            <div className="text-[9px] text-blue-400 font-mono font-medium">React + React Native</div>
+            <div className="text-[8px] sm:text-[9px] text-blue-400 font-mono font-medium">React + React Native</div>
           </div>
         </motion.div>
 
@@ -140,14 +156,14 @@ export default function HeroPhoto3D() {
             transform: 'translateZ(85px)',
           }}
           whileHover={{ scale: 1.08 }}
-          className="hidden sm:flex absolute top-56 -left-6 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-cyan-500/50 rounded-2xl px-3.5 py-2.5 shadow-2xl shadow-black/80 items-center gap-2.5 cursor-default group"
+          className="flex absolute top-40 -left-3 sm:top-56 sm:-left-6 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-cyan-500/50 rounded-xl sm:rounded-2xl px-2 py-1.5 sm:px-3.5 sm:py-2.5 shadow-2xl shadow-black/80 items-center gap-1.5 sm:gap-2.5 cursor-default group"
         >
-          <div className="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold shadow-inner shrink-0 group-hover:-rotate-12 transition-transform">
-            <Code2 className="w-4 h-4 text-cyan-400" />
+          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold shadow-inner shrink-0 group-hover:-rotate-12 transition-transform">
+            <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
           </div>
           <div>
-            <div className="text-[11px] font-bold text-white leading-tight">MERN + TypeScript</div>
-            <div className="text-[9px] text-emerald-400 font-mono font-medium">Production Scaled</div>
+            <div className="text-[10px] sm:text-[11px] font-bold text-white leading-tight">MERN + TypeScript</div>
+            <div className="text-[8px] sm:text-[9px] text-emerald-400 font-mono font-medium">Production Scaled</div>
           </div>
         </motion.div>
 
@@ -159,13 +175,13 @@ export default function HeroPhoto3D() {
             transform: 'translateZ(65px)',
           }}
           whileHover={{ scale: 1.06, y: -2 }}
-          className="hidden sm:flex absolute bottom-24 -right-2 z-30 bg-gradient-to-r from-blue-600/95 to-indigo-600/95 text-white backdrop-blur-md border border-blue-400/50 rounded-full px-4 py-1.5 shadow-xl shadow-blue-600/50 items-center gap-2"
+          className="flex absolute bottom-14 -right-1 sm:bottom-24 sm:-right-2 z-30 bg-gradient-to-r from-blue-600/95 to-indigo-600/95 text-white backdrop-blur-md border border-blue-400/50 rounded-full px-3 py-1 sm:px-4 sm:py-1.5 shadow-xl shadow-blue-600/50 items-center gap-1.5 sm:gap-2"
         >
-          <span className="relative flex h-2 w-2 shrink-0">
+          <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-400"></span>
           </span>
-          <span className="text-[11px] sm:text-xs font-bold tracking-wide">Softye Technologies</span>
+          <span className="text-[10px] sm:text-xs font-bold tracking-wide">Softye Technologies</span>
         </motion.div>
 
         {/* Layer 9: Floating 3D Micro-Pill (REST APIs - Top Left) */}
@@ -173,10 +189,10 @@ export default function HeroPhoto3D() {
           style={{
             transform: 'translateZ(60px)',
           }}
-          className="hidden sm:flex absolute top-20 -left-4 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-purple-500/40 rounded-xl px-2.5 py-1.5 shadow-lg shadow-purple-950/50 items-center gap-1.5 animate-float-left"
+          className="flex absolute top-10 -left-2 sm:top-20 sm:-left-4 z-30 bg-slate-900/90 dark:bg-[#141824]/90 backdrop-blur-md border border-purple-500/40 rounded-lg sm:rounded-xl px-2 py-1 sm:px-2.5 sm:py-1.5 shadow-lg shadow-purple-950/50 items-center gap-1 sm:gap-1.5 animate-float-left"
         >
-          <Cpu className="w-3.5 h-3.5 text-purple-400" />
-          <span className="text-[10px] font-mono font-bold text-purple-300">REST APIs</span>
+          <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-400" />
+          <span className="text-[8px] sm:text-[10px] font-mono font-bold text-purple-300">REST APIs</span>
         </motion.div>
       </motion.div>
     </div>

@@ -9,7 +9,7 @@ import Card3DTilt from '../../components/3d/Card3DTilt';
 
 const roles = [
   'Full Stack Developer',
-  'MERN Stack Specialist',
+  'Full Stack Specialist',
   'React Native Engineer',
   'REST API & Cloud Architect'
 ];
@@ -48,7 +48,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative pt-24 pb-20 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-28 overflow-x-hidden bg-slate-100 dark:bg-[#0c0e14] text-slate-900 dark:text-white transition-colors duration-300">
+    <section
+      id="home"
+      className="relative min-h-screen min-h-[100dvh] flex flex-col justify-center pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-28 lg:pb-8 overflow-x-hidden bg-slate-100 dark:bg-[#0c0e14] text-slate-900 dark:text-white transition-colors duration-300"
+    >
       {/* Background angled geometric aesthetic */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Deep blue atmospheric lighting */}
@@ -60,7 +63,7 @@ export default function Hero() {
         <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-br from-blue-500/[0.02] via-transparent to-transparent skew-x-12 pointer-events-none" />
       </div>
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 my-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Bio, Titles, CTAs, and Stats with staggered entrance */}
           <motion.div
@@ -69,99 +72,47 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-6 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
-            {/* Mobile View: Name & Profile Photo Side-by-Side */}
-            <div className="w-full flex items-center justify-between gap-4 mb-4 lg:hidden">
-              <div className="text-left flex-1 min-w-0">
-                <span className="text-sm font-medium text-slate-500 dark:text-slate-400 tracking-wide block mb-0.5">
-                  Hi I am
-                </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                  {personalInfo.name}
-                </h1>
-                <div className="min-h-[48px] flex items-center mt-0.5">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentRoleIndex}
-                      initial={{ y: 12, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -12, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-base sm:text-lg font-black text-blue-500 tracking-tight leading-tight"
-                    >
-                      {roles[currentRoleIndex]}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-                <span className="block text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 mt-0.5">
-                  Web & Mobile App Developer
-                </span>
-              </div>
+            {/* Intro and Name */}
+            <motion.span
+              variants={itemVariants}
+              className="text-sm sm:text-base lg:text-lg font-medium text-slate-500 dark:text-slate-400 tracking-wide mb-0.5 sm:mb-1 block"
+            >
+              Hi I am
+            </motion.span>
 
-              {/* Frameless Standing Avatar on Mobile */}
-              <div className="relative shrink-0 w-24 sm:w-28 h-36 sm:h-44 flex items-end justify-center select-none">
-                {/* Subtle Ambient Radial Backlight */}
-                <div className="absolute top-2 inset-x-0 h-24 rounded-full bg-gradient-to-tr from-blue-600/35 via-cyan-400/30 to-indigo-600/20 blur-xl pointer-events-none" />
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1 sm:mb-2"
+            >
+              {personalInfo.name}
+            </motion.h1>
 
-                {/* Ground Contact Shadow under shoes */}
-                <div className="absolute bottom-1 w-16 h-2 rounded-full bg-black/75 blur-xs pointer-events-none" />
+            {/* Dynamic Animated Role */}
+            <motion.div variants={itemVariants} className="mb-2 sm:mb-4 min-h-[3.5rem] sm:min-h-[4.5rem] flex flex-col justify-center">
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={currentRoleIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 leading-[1.15] drop-shadow-sm"
+                >
+                  {roles[currentRoleIndex]}
+                </motion.h2>
+              </AnimatePresence>
+              <span className="block text-base sm:text-xl lg:text-2xl font-bold text-slate-700 dark:text-slate-200 mt-0.5 sm:mt-1">
+                Web & Mobile App Developer
+              </span>
+            </motion.div>
 
-                {/* Standing Cutout Image without any frame/box */}
-                <img
-                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj-cutout.png`}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-contain object-bottom drop-shadow-[0_12px_24px_rgba(0,0,0,0.85)] relative z-10"
-                  onError={(e) => {
-                    e.currentTarget.src = `${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`;
-                  }}
-                />
-
-                {/* Active status pulse indicator */}
-                <span className="absolute bottom-1 right-0 flex h-2.5 w-2.5 z-20">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 ring-2 ring-white dark:ring-[#0c0e14] shadow-md"></span>
-                </span>
-              </div>
-            </div>
-
-            {/* Desktop View: Greeting, Name, Main Role (visible only on lg+) */}
-            <div className="hidden lg:block text-left w-full">
-              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono mb-3">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Available for high-impact roles & projects</span>
-              </motion.div>
-
-              <motion.span
-                variants={itemVariants}
-                className="text-base sm:text-lg font-medium text-slate-500 dark:text-slate-400 tracking-wide mb-1 block"
-              >
-                Hi I am
-              </motion.span>
-
-              <motion.h1
-                variants={itemVariants}
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2"
-              >
-                {personalInfo.name}
-              </motion.h1>
-
-              <motion.div variants={itemVariants} className="mb-4 min-h-[4rem] sm:min-h-[5rem] flex flex-col justify-center">
-                <AnimatePresence mode="wait">
-                  <motion.h2
-                    key={currentRoleIndex}
-                    initial={{ y: 24, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -24, opacity: 0 }}
-                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 leading-[1.1] drop-shadow-sm"
-                  >
-                    {roles[currentRoleIndex]}
-                  </motion.h2>
-                </AnimatePresence>
-                <span className="block text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-200 mt-1">
-                  Web & Mobile App Developer
-                </span>
-              </motion.div>
-            </div>
+            {/* Mobile View: 3D Photo with floating badges centered */}
+            <motion.div
+              variants={itemVariants}
+              className="w-full flex justify-center my-4 lg:hidden"
+            >
+              <HeroPhoto3D />
+            </motion.div>
 
             {/* Description */}
             <motion.p
@@ -285,6 +236,29 @@ export default function Hero() {
           </motion.div>
         </div>
       </Container>
+
+      {/* Subtle Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="hidden md:flex justify-center pb-3 pt-2 relative z-10"
+      >
+        <button
+          onClick={() => scrollToSection('about')}
+          className="flex flex-col items-center gap-1 text-slate-400 hover:text-blue-500 transition-colors group cursor-pointer focus:outline-none"
+          aria-label="Scroll to About section"
+        >
+          <span className="text-[10px] font-mono tracking-widest uppercase opacity-70 group-hover:opacity-100">Scroll</span>
+          <div className="w-4 h-7 rounded-full border border-slate-400/40 group-hover:border-blue-500/60 flex items-start justify-center p-1 transition-colors">
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+              className="w-1 h-1 rounded-full bg-blue-500"
+            />
+          </div>
+        </button>
+      </motion.div>
     </section>
   );
 }

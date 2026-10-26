@@ -219,7 +219,7 @@ export default function ResumeSection() {
                     <span>Certifications & Strengths</span>
                   </strong>
                   <div className="space-y-1 text-slate-600 dark:text-slate-400">
-                    <div>• MERN Stack Development — Softye Technologies</div>
+                    <div>• Full Stack Development — Softye Technologies</div>
                     <div>• Full Stack Python — Login360, Chennai</div>
                     <div>• Problem Solving, API Dev, Debugging, Database Design</div>
                   </div>
