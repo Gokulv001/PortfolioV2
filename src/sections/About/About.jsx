@@ -50,14 +50,11 @@ export default function About() {
           {/* Left Column: Personal Narrative */}
           <div className="lg:col-span-7 space-y-5 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             <div className="flex items-center gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-blue-500/40 shadow-lg shadow-blue-500/20 shrink-0 bg-gradient-to-b from-blue-950 to-slate-950 p-1 flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-blue-500/40 shadow-lg shadow-blue-500/20 shrink-0 bg-slate-100 dark:bg-slate-800">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj-cutout.png`}
+                  src={`${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`}
                   alt="Gokulraj V"
-                  className="w-full h-full object-cover object-[center_top]"
-                  onError={(e) => {
-                    e.currentTarget.src = `${import.meta.env.BASE_URL}images/profile/gokulraj.jpg`;
-                  }}
+                  className="w-full h-full object-cover object-[center_15%]"
                 />
               </div>
               <div>

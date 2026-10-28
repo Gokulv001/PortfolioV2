@@ -46,7 +46,7 @@ export default function HeroVisual() {
             </div>
             <div>
               <span className="text-slate-600 dark:text-slate-400">roles:</span> [
-              <span className="text-emerald-600 dark:text-emerald-400">"MERN Stack"</span>,{' '}
+              <span className="text-emerald-600 dark:text-emerald-400">"Full Stack"</span>,{' '}
               <span className="text-emerald-600 dark:text-emerald-400">"Web & Mobile"</span>],
             </div>
             <div>
